@@ -1,4 +1,4 @@
-class Cube {
+class Pyramid {
 	constructor(center, size, dots='none', angles={x: 0, y: 0, z: 0}) {
 		this.size = size;
 		this.dots = dots;
@@ -23,15 +23,11 @@ class Cube {
 		);
 
 		this.VertexList = [
-			new Point3D(cms.x, cps.y, cms.z, 'red'),
-			new Point3D(cps.x, cps.y, cms.z, 'orange'),
-			new Point3D(cms.x, cms.y, cms.z, '#a89911'),
-			new Point3D(cps.x, cms.y, cms.z, 'green'),
-
-			new Point3D(cms.x, cps.y, cps.z, 'blue'),
-			new Point3D(cps.x, cps.y, cps.z, 'purple'),
-			new Point3D(cms.x, cms.y, cps.z, 'black'),
-			new Point3D(cps.x, cms.y, cps.z, 'brown')
+			new Point3D(cms.x, this.center.y, cms.z, 'red'),
+			new Point3D(cps.x, this.center.y, cms.z, 'orange'),
+			new Point3D(cms.x, this.center.y, cps.z, '#a89911'),
+			new Point3D(cps.x, this.center.y, cps.z, 'green'),
+			new Point3D(this.center.x, this.center.y + size*2, this.center.z, 'blue')
 		]
 	}
 
@@ -65,6 +61,7 @@ class Cube {
       }
 		}
 
+    /*
     DrawLine(points[0], points[1]);
     DrawLine(points[1], points[3]);
     DrawLine(points[3], points[2]);
@@ -77,7 +74,17 @@ class Cube {
     DrawLine(points[6], points[7]);
     DrawLine(points[3], points[7]);
     DrawLine(points[5], points[7]);
-    
+    */
+
+    DrawLine(points[0], points[1]);
+    DrawLine(points[1], points[3]);
+    DrawLine(points[3], points[2]);
+    DrawLine(points[2], points[0]);
+
+    DrawLine(points[4], points[0]);
+    DrawLine(points[4], points[1]);
+    DrawLine(points[4], points[2]);
+    DrawLine(points[4], points[3]);
   
     
     for (let i = 0; i < this.VertexList.length; i++) {
