@@ -1,8 +1,6 @@
 /* wss://3d-render-server.saturnwillow.repl.co/echo */
 let render_objects = [];
 
-
-
 function main() {
     const canvas = document.getElementById("main-canvas");
     const ctx = canvas.getContext("2d");
@@ -19,7 +17,6 @@ function main() {
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     render_objects = [];
-    
 
     // Set the interval to achieve 60fps
     setInterval(render, 1000 / 60); // 1000ms divided by 60fps gives the interval in milliseconds
@@ -33,8 +30,6 @@ function render() {
 
     // Clear the canvas on each frame
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-
 
     // Render the background
     ctx.fillStyle = background_color;
@@ -75,11 +70,11 @@ document.addEventListener('keydown', (event) => {
             object_size = parseFloat(object_size);
         }
 
-        console.log(object_size);
-
         const new_obj = new obj_class(object_center, object_size, object_dotStyle);
 
         render_objects.push(new_obj);
+    } else if(event.key == 'r') {
+        render_objects = [];
     }
 })
 
